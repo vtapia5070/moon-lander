@@ -1,5 +1,11 @@
+body {
+  min-height: 100vh;
+  background-color: #e2e2e2e2;
+}
+
 .App {
-  text-align: center;
+  background-color: #e2e2e2e2;
+  min-height: 100vh;
 }
 
 .App-logo {
