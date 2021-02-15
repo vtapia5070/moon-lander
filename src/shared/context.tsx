@@ -10,8 +10,11 @@ interface StoreContextType {
 const initialState: Store = {
   baseCurrency: '',
   targetCurrency: '',
-  amount: 1,
-  exchangeRate: '',
+  amount: '1',
+  exchangeRate: {
+    rate: '',
+    status: 'Idle',
+  },
 };
 
 const StoreContext = createContext<StoreContextType>({

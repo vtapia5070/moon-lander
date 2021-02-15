@@ -1,0 +1,15 @@
+.conversionRate {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+
+  .container {
+    margin: 10px 0;
+    display: flex;
+  }
+
+  .header {
+    font-weight: 600;
+    margin-right: 10px;
+  }
+}

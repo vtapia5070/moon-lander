@@ -13,37 +13,38 @@ export enum Actions {
   UPDATE_BASE_CURRENCY = 'UPDATE_BASE_CURRENCY',
   UPDATE_TARGET_CURRENCY = 'UPDATE_TARGET_CURRENCY',
   UPDATE_AMOUNT = 'UPDATE_AMOUNT',
-  UPDATE_EXCHANGE_RATE = 'UPDATE_EXCHANGE_RATE',
+  FETCH_EXCHANGE_RATE = 'FETCH_EXCHANGE_RATE',
 }
 
 export type Action =
   | Actions.UPDATE_BASE_CURRENCY
   | Actions.UPDATE_TARGET_CURRENCY
   | Actions.UPDATE_AMOUNT
-  | Actions.UPDATE_EXCHANGE_RATE;
+  | Actions.FETCH_EXCHANGE_RATE;
 
-interface ActionInterface {
-  type: string;
-}
-
-interface BaseCurrency extends ActionInterface {
+interface BaseCurrency {
   type: Actions.UPDATE_BASE_CURRENCY;
   payload: string;
 }
 
-interface TargetCurrency extends ActionInterface {
+interface TargetCurrency {
   type: Actions.UPDATE_TARGET_CURRENCY;
   payload: string;
 }
 
-interface Amount extends ActionInterface {
+interface Amount {
   type: Actions.UPDATE_AMOUNT;
-  payload: number;
+  payload: string;
 }
 
-interface ExchangeRate extends ActionInterface {
-  type: Actions.UPDATE_EXCHANGE_RATE;
-  payload: string;
+export type FetchStatus = 'Idle' | 'Pending' | 'Complete' | 'Failure';
+
+interface ExchangeRate {
+  type: Actions.FETCH_EXCHANGE_RATE;
+  payload: {
+    status: FetchStatus;
+    rate: string;
+  };
 }
 
 export type QueryActionTypes = BaseCurrency | TargetCurrency | Amount | ExchangeRate;
@@ -51,6 +52,9 @@ export type QueryActionTypes = BaseCurrency | TargetCurrency | Amount | Exchange
 export interface Store {
   baseCurrency: string;
   targetCurrency: string;
-  amount: number;
-  exchangeRate: string;
+  amount: string;
+  exchangeRate: {
+    rate: string;
+    status: FetchStatus;
+  };
 }

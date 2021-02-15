@@ -17,10 +17,12 @@ export const reducer = (state: Store, action: QueryActionTypes): Store => {
         ...state,
         amount: action.payload,
       };
-    case Actions.UPDATE_EXCHANGE_RATE:
+    case Actions.FETCH_EXCHANGE_RATE:
       return {
         ...state,
-        exchangeRate: action.payload,
+        exchangeRate: {
+          ...action.payload,
+        },
       };
     default:
       return {
