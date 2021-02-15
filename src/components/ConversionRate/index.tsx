@@ -1,14 +1,11 @@
 import { useContext } from 'react';
-// import Grid from '@material-ui/core/Grid';
-// import { Actions, QueryFunctions } from '../../shared/types';
 
 import { StoreContext } from '../../shared/context';
-// import { fetchConversionRate } from '../../shared/api';
 
 import './styles.scss';
 
 export const ConversionRate = () => {
-  const { state, dispatch } = useContext(StoreContext);
+  const { state } = useContext(StoreContext);
 
   return (
     <div className="conversionRate">

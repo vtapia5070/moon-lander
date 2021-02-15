@@ -3,10 +3,10 @@ import { Line } from 'react-chartjs-2';
 
 import { StoreContext } from '../../shared/context';
 import { fetchHistoricalConversions } from '../../shared/api';
-import { Actions, QueryFunctions } from '../../shared/types';
+import { QueryFunctions } from '../../shared/types';
 
 export const HistoricalConversions = () => {
-  const { state, dispatch } = useContext(StoreContext);
+  const { state } = useContext(StoreContext);
   const [dataChart, setDataChart] = useState({});
 
   useEffect(() => {
